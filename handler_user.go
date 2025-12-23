@@ -77,10 +77,10 @@ func handlerListUsers(s *state, cmd command) error {
 	}
 
 	for _, user := range users {
-		if user == s.cfg.CurrentUserName {
-			fmt.Printf("* %v (current)\n", user)
+		if user.Name == s.cfg.CurrentUserName {
+			fmt.Printf("* %v (current)\n", user.Name)
 		} else {
-			fmt.Printf("* %v\n", user)
+			fmt.Printf("* %v\n", user.Name)
 		}
 	}
 	return nil
