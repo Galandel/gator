@@ -8,6 +8,7 @@ import (
 
 	"github.com/Galandel/gator/internal/config"
 	"github.com/Galandel/gator/internal/database"
+
 	_ "github.com/lib/pq"
 )
 
@@ -48,6 +49,7 @@ func main() {
 	cmds.register("follow", middlewareLoggedIn(handlerFollow))
 	cmds.register("following", middlewareLoggedIn(handlerListFollows))
 	cmds.register("unfollow", middlewareLoggedIn(handlerUnfollow))
+	cmds.register("browse", middlewareLoggedIn(handlerBrowse))
 
 	if len(os.Args) < 2 {
 		log.Fatal("Usage: cli <command> [args...]")
